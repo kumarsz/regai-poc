@@ -1,0 +1,26 @@
+# Database - regenerate using radar_db_setup.py
+*.db
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Environment variables
+.env
+*.env
+
+# AWS credentials
+.aws/
+
+# Streamlit cache
+.streamlit/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
