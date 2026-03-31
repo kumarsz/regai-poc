@@ -1,0 +1,201 @@
+{
+  "artifact_type": "Artifact2_ImpactAnalysis",
+  "source_artifact1": "frtb_final_rule_2024.pdf",
+  "generated_at": "2026-03-31T16:41:25.362021Z",
+  "model_used": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+  "kb_rci_used": "4IERGQ3ERC",
+  "kb_sk_used": "1GN5EJNAGE",
+  "radar_db_used": "/home/ec2-user/environment/applications/regai-poc/poc3/radar.db",
+  "tools_invoked": [
+    "radar_get_pending_ia",
+    "radar_find_regulations",
+    "regulation analysis",
+    "query_sk_kb",
+    "query_rci_kb",
+    "system integration analysis",
+    "radar_get_regulation",
+    "regulation requirements",
+    "document review",
+    "radar_get_system_capabilities",
+    "analysis of system capabilities",
+    "calculation based on dates",
+    "radar_get_all_systems",
+    "Artifact 1",
+    "timeline assessment",
+    "system requirements assessment"
+  ],
+  "regulation_summary": "## Executive Summary: Basel IV FRTB Final Rule\n\n**What it is:** The Fundamental Review of the Trading Book (FRTB) is a new Basel regulatory framework that overhauls how banks calculate minimum capital requirements for market risk, replacing the existing framework entirely from January 2026.\n\n**Key changes:** The regulation switches from Value-at-Risk (VaR) to Expected Shortfall (ES) as the primary risk measure to better capture extreme losses. Banks must now obtain approval for internal models at individual trading desk level rather than bank-wide. New monthly testing requirements compare risk models against actual trading profits. Banks need 10 years of historical data (up from one year) and must separately capitalize \"non-modellable\" risk factors that lack sufficient market data. A capital floor ensures internal model benefits cannot fall below 72.5% of the standardized approach.\n\n**Key deadlines:** Parallel testing begins July 2025, full implementation January 1, 2026, with first regulatory submissions due January 31, 2026. Transition plans must be submitted by December 31, 2024.\n\n**Who's affected:** All banks with trading operations, particularly those using internal risk models for capital calculations.",
+  "statistics": {
+    "total_questions": 13,
+    "confirmed": 10,
+    "tbc": 3,
+    "not_known": 0
+  },
+  "ia_answers": [
+    {
+      "id": "IA01",
+      "section": "Regulation Context",
+      "question": "What is the regulation and what does it require at a high level?",
+      "answer": "Basel IV Fundamental Review of the Trading Book (FRTB) is a comprehensive overhaul of market risk capital requirements. It replaces VaR with Expected Shortfall at 97.5% confidence, introduces desk-level model approval requiring monthly P&L attribution testing, mandates 10 years of historical data (up from 1 year), creates a new Non-Modellable Risk Factors framework, and implements a 72.5% capital floor. Banks must submit 4 types of reports: FRTB-SA (monthly), FRTB-IMA (monthly), NMRF (quarterly), and Desk-ANN (annual). Effective January 1, 2026 with parallel run from July 2025.",
+      "tag": "Confirmed",
+      "tag_reason": "Directly extracted from regulation document and Artifact 1",
+      "tools_used": [
+        "document review",
+        "Artifact 1"
+      ]
+    },
+    {
+      "id": "IA02",
+      "section": "Regulation Context",
+      "question": "Which existing regulation in RADAR does this replace or overlap with?",
+      "answer": "FRTB completely replaces REG-003 (Basel III Market Risk VaR framework, regulation code BCBS-MR-2016). REG-003 is currently 'Under Review' status and handles quarterly Market Risk VaR reporting via GRACE. The new FRTB regulations REG-005 (FRTB-SA) and REG-006 (FRTB-IMA) are both marked as replacing REG-003 and are in 'Pending' status with effective date January 1, 2026.",
+      "tag": "Confirmed",
+      "tag_reason": "Found exact regulation mapping in RADAR showing REG-005 and REG-006 replace REG-003",
+      "tools_used": [
+        "radar_find_regulations",
+        "radar_get_regulation"
+      ]
+    },
+    {
+      "id": "IA03",
+      "section": "Systems Impact",
+      "question": "Which systems in RADAR are affected by this regulation?",
+      "answer": "Two strategic systems are affected: 1) GRACE (SYS-001) - regulatory reporting platform, currently handles VaR reporting and will be primary system for FRTB regulatory submissions, and 2) Risk-Engine (SYS-006) - core risk calculation engine that produces VaR/ES calculations and has 10+ years of historical data. GRACE is the designated system for the 4 pending FRTB reports currently marked as 'system TBD' in RADAR.",
+      "tag": "Confirmed",
+      "tag_reason": "Systems identified through RADAR inventory and pending IA reports mapping",
+      "tools_used": [
+        "radar_get_all_systems",
+        "radar_get_pending_ia",
+        "radar_get_system_capabilities"
+      ]
+    },
+    {
+      "id": "IA04",
+      "section": "Systems Impact",
+      "question": "For each affected system, what specific changes are required?",
+      "answer": "GRACE requires: Expected Shortfall 97.5% upgrade (currently only supports 95%), new PLAT module development, data warehouse expansion from 5 to 10 years, desk-level reporting schema changes, NMRF identification capability, and FRTB XBRL taxonomy loading. Risk-Engine requires: ES calculation upgrade to 97.5% confidence level, NMRF classification logic development, and enhanced P&L feed integration for real-time PLAT support. Both systems need desk-level segmentation capability.",
+      "tag": "Confirmed",
+      "tag_reason": "Specific capability gaps identified through RADAR system capabilities and SK-KB queries",
+      "tools_used": [
+        "radar_get_system_capabilities",
+        "query_sk_kb"
+      ]
+    },
+    {
+      "id": "IA05",
+      "section": "Systems Impact",
+      "question": "Are there any systems gaps \u2014 capabilities required by the regulation that no current system supports?",
+      "answer": "Yes, P&L Attribution Testing (PLAT) is a major gap - neither GRACE nor Risk-Engine currently supports this critical FRTB requirement. PLAT requires comparing risk-theoretical P&L against hypothetical P&L monthly at desk level with traffic light scoring. Additionally, comprehensive NMRF identification and stress scenario capitalisation processes are not implemented in any system. Desk-level approval workflow management is also missing.",
+      "tag": "Confirmed",
+      "tag_reason": "PLAT capability explicitly marked as 'Not supported' in GRACE capabilities and confirmed by SK-KB",
+      "tools_used": [
+        "radar_get_system_capabilities",
+        "query_sk_kb"
+      ]
+    },
+    {
+      "id": "IA06",
+      "section": "Data Impact",
+      "question": "What data gaps exist between what the regulation requires and what is currently available?",
+      "answer": "Key data gaps: 1) Historical data depth - GRACE only has 5 years vs 10 years required, 2) Real-time P&L feeds not integrated for PLAT, 3) Desk-level data segmentation not available (currently firm-level only), 4) Risk factor modellability criteria data (24 observations per year, max 1-month gaps) not systematically tracked, 5) Front office hypothetical P&L data not integrated with risk systems.",
+      "tag": "Confirmed",
+      "tag_reason": "Data gaps clearly identified in GRACE capabilities assessment and SK-KB analysis",
+      "tools_used": [
+        "radar_get_system_capabilities",
+        "query_sk_kb"
+      ]
+    },
+    {
+      "id": "IA07",
+      "section": "Data Impact",
+      "question": "Are there data retention requirements that exceed current capabilities?",
+      "answer": "Yes, FRTB requires minimum 10 years of historical price data for all IMA risk factors, but GRACE currently only stores 5 years. Risk-Engine has 10+ years available in kdb+ but GRACE data warehouse needs expansion. This represents a 100% increase in data retention requirements compared to the current 1-year minimum under BCBS-MR-2016. Data backfill project will be required for the missing 5 years.",
+      "tag": "Confirmed",
+      "tag_reason": "Historical data requirements clearly documented and current capabilities confirmed via system queries",
+      "tools_used": [
+        "radar_get_system_capabilities",
+        "query_sk_kb",
+        "document review"
+      ]
+    },
+    {
+      "id": "IA08",
+      "section": "Effort and Timeline",
+      "question": "What is the estimated effort for each work stream \u2014 Low (under 1 month), Medium (1-3 months), High (over 3 months)?",
+      "answer": "High effort (>3 months): PLAT module development (5 months), data warehouse expansion + backfill (4 months), NMRF capability (4 months), ES 97.5% upgrade (3 months), real-time P&L integration (3 months). Medium effort (1-3 months): desk-level reporting schema (2 months), desk-level backtesting (2 months). Low effort (<1 month): XBRL taxonomy loading (6 weeks), report template creation (4-6 weeks).",
+      "tag": "Confirmed",
+      "tag_reason": "Effort estimates provided directly in SK-KB system documentation",
+      "tools_used": [
+        "query_sk_kb"
+      ]
+    },
+    {
+      "id": "IA09",
+      "section": "Effort and Timeline",
+      "question": "Is the implementation timeline feasible given the effective date and current system state?",
+      "answer": "Timeline is extremely tight and high risk. With go-live January 1, 2026 and parallel run starting July 1, 2025, only 6 months remain for parallel run. Critical path items like PLAT (5 months) and data warehouse (4 months) could overlap but leave no buffer. The transition plan deadline of December 31, 2024 is already passed. Multiple high-effort work streams need to complete by mid-2025 for proper parallel testing.",
+      "tag": "TBC",
+      "tag_reason": "Timeline assessment based on effort estimates vs. regulation dates, but detailed project planning needed for confirmation",
+      "tools_used": [
+        "document review",
+        "query_sk_kb",
+        "calculation based on dates"
+      ]
+    },
+    {
+      "id": "IA10",
+      "section": "Risk",
+      "question": "What are the key delivery risks for this regulation?",
+      "answer": "Critical risks: 1) PLAT development complexity - new capability with regulatory testing requirements, 2) Data backfill quality and completeness for 10-year history, 3) Risk-Engine and GRACE integration for real-time P&L feeds, 4) Parallel run timeline compressed due to multiple concurrent work streams, 5) Desk-level model approval process dependencies on trading desk cooperation, 6) NMRF identification logic validation with supervisors, 7) Resource contention with other regulatory deliveries.",
+      "tag": "TBC",
+      "tag_reason": "Risks identified from regulation complexity and system gaps, but detailed risk assessment needed",
+      "tools_used": [
+        "analysis of system capabilities",
+        "regulation requirements",
+        "timeline assessment"
+      ]
+    },
+    {
+      "id": "IA11",
+      "section": "Risk",
+      "question": "What happens if this regulation is not implemented on time?",
+      "answer": "Severe consequences: 1) Regulatory breach - FRTB is mandatory Basel IV requirement with January 1, 2026 effective date, 2) Potential supervisory action and penalties for non-compliance, 3) Must continue using superseded BCBS-MR-2016 framework which becomes invalid, 4) Cannot obtain IMA approval for trading desks without PLAT capability, 5) Forced to use higher capital Standardised Approach, 6) Reputational risk as Basel IV compliance is globally scrutinized.",
+      "tag": "Confirmed",
+      "tag_reason": "Regulatory consequences clearly stated in regulation document and historical regulatory context",
+      "tools_used": [
+        "document review",
+        "query_rci_kb"
+      ]
+    },
+    {
+      "id": "IA12",
+      "section": "Open Questions",
+      "question": "What questions must be resolved with the business before development can begin?",
+      "answer": "Key business decisions needed: 1) Which trading desks will pursue IMA approval vs. Standardised Approach, 2) Desk segmentation structure and reporting hierarchy, 3) PLAT testing thresholds and traffic light calibration, 4) NMRF acceptance criteria and stress scenario selection, 5) Data quality standards for 10-year historical backfill, 6) Real-time P&L feed frequency and latency requirements, 7) Supervisor engagement strategy for model approval process, 8) Resource allocation across parallel work streams.",
+      "tag": "TBC",
+      "tag_reason": "Business questions identified from regulation requirements but need stakeholder confirmation",
+      "tools_used": [
+        "regulation analysis",
+        "system requirements assessment"
+      ]
+    },
+    {
+      "id": "IA13",
+      "section": "Open Questions",
+      "question": "What external dependencies exist \u2014 vendors, regulators, other teams?",
+      "answer": "External dependencies: 1) National supervisors - for transition plan approval, desk-level model approval, and NMRF validation, 2) Front Office Technology - for real-time P&L feed integration and hypothetical P&L data, 3) Market Data vendors - for historical price data backfill and ongoing feeds, 4) Market Risk Technology team (Risk-Engine owners) - for ES and NMRF upgrades, 5) Trading desks - for PLAT testing cooperation and desk approval processes, 6) Data warehouse vendors - for storage expansion capacity.",
+      "tag": "Confirmed",
+      "tag_reason": "Dependencies identified from system ownership structure and regulation requirements",
+      "tools_used": [
+        "radar_get_all_systems",
+        "regulation requirements",
+        "system integration analysis"
+      ]
+    }
+  ],
+  "artifact1_reference": {
+    "confirmed": 14,
+    "tbc": 3,
+    "not_known": 0
+  }
+}

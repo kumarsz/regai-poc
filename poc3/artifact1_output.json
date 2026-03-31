@@ -1,0 +1,182 @@
+{
+  "artifact_type": "Artifact1_RegulationSummary",
+  "source_document": "frtb_final_rule_2024.pdf",
+  "generated_at": "2026-03-31T16:12:31.817092Z",
+  "model_used": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+  "kb_rci_used": "4IERGQ3ERC",
+  "summary": "## Executive Summary: Basel IV FRTB Final Rule\n\n**What it is:** The Fundamental Review of the Trading Book (FRTB) is a new Basel regulatory framework that overhauls how banks calculate minimum capital requirements for market risk, replacing the existing framework entirely from January 2026.\n\n**Key changes:** The regulation switches from Value-at-Risk (VaR) to Expected Shortfall (ES) as the primary risk measure to better capture extreme losses. Banks must now obtain approval for internal models at individual trading desk level rather than bank-wide. New monthly testing requirements compare risk models against actual trading profits. Banks need 10 years of historical data (up from one year) and must separately capitalize \"non-modellable\" risk factors that lack sufficient market data. A capital floor ensures internal model benefits cannot fall below 72.5% of the standardized approach.\n\n**Key deadlines:** Parallel testing begins July 2025, full implementation January 1, 2026, with first regulatory submissions due January 31, 2026. Transition plans must be submitted by December 31, 2024.\n\n**Who's affected:** All banks with trading operations, particularly those using internal risk models for capital calculations.",
+  "statistics": {
+    "total_questions": 17,
+    "confirmed": 14,
+    "tbc": 3,
+    "not_known": 0,
+    "enriched_from_kb": 1
+  },
+  "answers": [
+    {
+      "id": "Q01",
+      "question": "What is the full name of the regulation?",
+      "answer": "Basel IV \u2014 Fundamental Review of the Trading Book (FRTB)",
+      "tag": "Confirmed",
+      "tag_reason": "Full name clearly stated in document title",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q02",
+      "question": "What is the document reference or circular number?",
+      "answer": "BCBS-2024-FRTB-REV3",
+      "tag": "Confirmed",
+      "tag_reason": "Document reference explicitly stated",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q03",
+      "question": "Who is the regulator issuing this regulation?",
+      "answer": "BCBS (Basel Committee on Banking Supervision)",
+      "tag": "Confirmed",
+      "tag_reason": "BCBS clearly identified as the issuing body",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "answer": "Global - applies to all Basel Committee member jurisdictions",
+      "tag": "Confirmed",
+      "historical_context_used": true
+    },
+    {
+      "id": "Q05",
+      "question": "What is the effective date of this regulation?",
+      "answer": "1 January 2026",
+      "tag": "Confirmed",
+      "tag_reason": "Effective date clearly stated multiple times in the document",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q06",
+      "question": "When is the first submission due?",
+      "answer": "31 January 2026",
+      "tag": "Confirmed",
+      "tag_reason": "First submission date explicitly stated in header and implementation timeline",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q07",
+      "question": "Is there a parallel run period? If so, when does it start and end?",
+      "answer": "Yes, parallel run begins 1 July 2025 and ends with go-live on 1 January 2026",
+      "tag": "Confirmed",
+      "tag_reason": "Parallel run period clearly defined in implementation timeline section",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q08",
+      "question": "What risk domain or business area does this regulation cover?",
+      "answer": "Market risk and trading book activities",
+      "tag": "Confirmed",
+      "tag_reason": "Document explicitly states it covers minimum capital requirements for market risk under the trading book framework",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q09",
+      "question": "Does this regulation replace or supersede an existing regulation? If so, which one?",
+      "answer": "Yes, it supersedes BCBS-MR-2016 in its entirety with effect from 1 January 2026",
+      "tag": "Confirmed",
+      "tag_reason": "Document explicitly states it supersedes BCBS-MR-2016",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q10",
+      "question": "What are the key changes from the prior framework?",
+      "answer": "1) VaR replaced by Expected Shortfall (97.5% confidence), 2) Desk-level model approval process, 3) P&L attribution testing at desk level, 4) Non-modellable risk factors framework, 5) Increased data requirements (10 years vs 1 year), 6) Standardised Approach capital floor at 72.5%",
+      "tag": "Confirmed",
+      "tag_reason": "Key changes comprehensively detailed in section 2 of the document",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q11",
+      "question": "What reports must be submitted? List each report with its frequency and SLA.",
+      "answer": "1) FRTB-SA (Standardised Approach): Monthly, M+15 business days, 2) FRTB-IMA (Internal Model): Monthly, M+15 business days, 3) NMRF-Q (Non-Modellable Risk Factors): Quarterly, Q+30 calendar days, 4) DESK-ANN (Desk-Level Approval Status): Annual, Year+60 calendar days",
+      "tag": "Confirmed",
+      "tag_reason": "All reports with frequencies and SLAs clearly listed in reporting requirements table",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q12",
+      "question": "What format are the reports required in (XML, XBRL, CSV, PDF)?",
+      "answer": "FRTB-SA and FRTB-IMA in XBRL format, NMRF-Q in XML format, DESK-ANN in PDF format",
+      "tag": "Confirmed",
+      "tag_reason": "Report formats explicitly specified in the reporting requirements table",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q13",
+      "question": "What data is required to produce the reports? Are there specific data retention requirements?",
+      "answer": "Minimum 10 years of historical price data for all risk factors in IMA perimeter (increased from 1 year), real-time P&L data feeds from front office systems for PLAT, risk factor eligibility documentation reviewed quarterly, at least 24 real price observations per year for modellable risk factors",
+      "tag": "Confirmed",
+      "tag_reason": "Data requirements clearly specified in section 4 and throughout the document",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q14",
+      "question": "Are there new calculation methodologies required? If so, describe them.",
+      "answer": "Yes: 1) Expected Shortfall at 97.5% confidence replacing VaR at 99%, 2) P&L attribution testing comparing risk-theoretical P&L against hypothetical P&L, 3) Non-modellable risk factors capitalisation using stress scenario approach based on most severe 12-month period, 4) Desk-level backtesting and approval processes",
+      "tag": "Confirmed",
+      "tag_reason": "New methodologies extensively described throughout sections 2.1-2.4",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q15",
+      "question": "What business areas or teams are likely to be affected?",
+      "answer": "Risk management, trading desks, front office pricing systems, market risk teams, regulatory reporting teams, data management teams, and supervisory approval processes",
+      "tag": "TBC",
+      "tag_reason": "Inferred from regulation requirements but specific organizational impact not explicitly detailed",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q16",
+      "question": "What systems are likely to be affected based on the regulation description?",
+      "answer": "Risk calculation engines (ES implementation), P&L attribution systems, historical data infrastructure (10-year storage), real-time data feeds, backtesting systems, desk-level reporting platforms, regulatory reporting systems, and NMRF identification/capitalisation systems",
+      "tag": "TBC",
+      "tag_reason": "Systems impact inferred from technical requirements described but not explicitly enumerated",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    },
+    {
+      "id": "Q17",
+      "question": "What is the estimated impact level \u2014 High, Medium, or Low \u2014 and why?",
+      "answer": "High impact - Complete replacement of VaR framework with Expected Shortfall, new desk-level approval processes, 10x increase in data retention requirements, new P&L attribution infrastructure, parallel run requirements, and comprehensive system upgrades needed by January 2026",
+      "tag": "TBC",
+      "tag_reason": "Impact level assessment based on scope and complexity of changes but not explicitly stated in document",
+      "needs_historical_context": false,
+      "historical_query": null,
+      "historical_context_used": false
+    }
+  ]
+}
