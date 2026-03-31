@@ -2,7 +2,7 @@
 REGAI POC — CLOUD9 ENVIRONMENT SETUP GUIDE
 ================================================================================
 Author  : Kumar Saminathan
-Project : RegAI POC — Agentic AI for Regulatory Reporting
+Project : RegAI POC — Agentic AI for Regulatory Reporting--
 GitHub  : https://github.com/kumarsz/regai-poc
 ================================================================================
 
